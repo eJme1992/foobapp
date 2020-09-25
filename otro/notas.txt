@@ -1,0 +1,2 @@
+// En el modelo para indicar con que tabla se va trabajar se usa 
+-protected $table = "tablaesql";
