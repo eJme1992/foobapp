@@ -48,9 +48,7 @@ class CreateUserFilesTable extends Migration
             $table->unsignedBigInteger('tipo')->unsigned()
             ->index()
             ->nullable();
-
-            $table->string('tipo_archivo');
-
+            //$table->string('tipo_archivo');
             $table->timestamps();
 
             $table->foreign('estado')
@@ -67,6 +65,39 @@ class CreateUserFilesTable extends Migration
 
 
         });
+
+
+
+        DB::table('estado_de_archivos')->insert([
+        [
+            'slug'        => 'activo', 
+            'descripcion' => 'Activo',
+            'created_at'  =>  new DateTime, 
+            'updated_at'  =>  new DateTime
+        ],
+        [
+            'slug'        => 'inactivo', 
+            'descripcion' => 'Inactivo',
+            'created_at'  =>  new DateTime, 
+            'updated_at'  =>  new DateTime
+        ],
+        ]);
+
+          DB::table('tipo_de_archivos')->insert([
+        [
+            'slug'        => 'avatar', 
+            'descripcion' => 'Imagen de perfil',
+            'created_at'  =>  new DateTime, 
+            'updated_at'  =>  new DateTime
+        ],
+        [
+            'slug'        => 'dni', 
+            'descripcion' => 'D.N.I',
+            'created_at'  =>  new DateTime, 
+            'updated_at'  =>  new DateTime
+        ],
+        ]);
+
     }
 
     /**

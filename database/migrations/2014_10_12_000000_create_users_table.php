@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            //$table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -56,11 +56,11 @@ class CreateUsersTable extends Migration
 
             $table->foreign('estado')
                 ->references('id')
-                ->on('estado_de_usuarios')->onDelete('cascade');;
+                ->on('estado_de_usuarios');
 
             $table->foreign('tipo')
                 ->references('id')
-                ->on('tipo_de_usuarios')->onDelete('cascade');;
+                ->on('tipo_de_usuarios');
 
 
         });

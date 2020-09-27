@@ -14,7 +14,9 @@ class ApiAuthMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
+    {   
+
+        //Esta estructura Valida el token cada ves que se requiere
         $token = $request->header('Authorization');
         $jwtAuth = new \JwtAuth();
         $checkToken = $jwtAuth->checkToken($token);
@@ -29,7 +31,5 @@ class ApiAuthMiddleware
              return response()
             ->json($data, $data['code']);
         }
-
-        
     }
 }

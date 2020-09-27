@@ -31,23 +31,29 @@ class CreatePaymentMethodsTable extends Migration
 
         Schema::create('my_payment_methods', function (Blueprint $table) {
             $table->increments('id');
-           
             $table->boolean('status');
-            $table->string('name');
-            $table->string('card_number');
-            $table->string('number_security');
-            $table->string('expiration_date');
-
-            $table->string('token');
-
+            $table->string('name')->nullable();
+            $table->string('card_number')->nullable();
+            $table->string('number_security')->nullable();
+            $table->string('expiration_date')->nullable();
+            $table->string('token')->nullable();
             $table->unsignedBigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-
             $table->unsignedBigInteger('payment_methods_id')->unsigned();
             $table->foreign('payment_methods_id')->references('id')->on('payment_methods');
-          
             $table->timestamps();
         });
+
+
+           DB::table('payment_methods')->insert([
+        [
+            'slug'        => 'efectivo', 
+            'nombre'      => 'Pago en efectivo',
+            'estado'      => 'activo',
+            'created_at'  =>  new DateTime, 
+            'updated_at'  =>  new DateTime
+        ],
+        ]);
     }
 
     /**
