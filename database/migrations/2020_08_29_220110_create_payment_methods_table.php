@@ -30,7 +30,7 @@ class CreatePaymentMethodsTable extends Migration
         });
 
         Schema::create('my_payment_methods', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->boolean('status');
             $table->string('name')->nullable();
             $table->string('card_number')->nullable();

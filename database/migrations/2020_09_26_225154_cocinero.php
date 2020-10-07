@@ -57,11 +57,11 @@ class Cocinero extends Migration
                   ->references('id')
                   ->on('users');
 
-            $table->foreign('estado')
+            $table->foreign('tipo')
                   ->references('id')
                   ->on('tipo_de_cocinero');
 
-            $table->foreign('tipo')
+            $table->foreign('estado')
                   ->references('id')
                   ->on('estado_del_cocinero');
 
@@ -75,10 +75,13 @@ class Cocinero extends Migration
 
         Schema::create('horario_laboral', function (Blueprint $table) {
             $table->id();
-            $table->string('dia');
+        
             $table->string('hora_desde');
             $table->string('hora_hasta');
             $table->unsignedBigInteger('id_cocinero')->unsigned()
+                  ->index()
+                  ->nullable();
+            $table->unsignedBigInteger('dia')->unsigned()
                   ->index()
                   ->nullable();
 

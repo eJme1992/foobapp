@@ -27,3 +27,7 @@ Route::post('api/user/register/fileUser/{tipo}','UserController@fileUser')->midd
 Route::get('api/user/getfileuser/{slug_user}/{tipo}','UserController@getFileUser');
 Route::get('api/getfile/{filename}','UserController@getFile');
 Route::get('api/getusuario/{slug_user}','UserController@getUsuario');
+
+Route::resource('api/categoria', 'CategoriaController');
+
+Route::resource('api/cocinero', 'CocineroController');
