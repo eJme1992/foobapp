@@ -93,6 +93,12 @@ class CreateUsersTable extends Migration
             'created_at'  =>  new DateTime, 
             'updated_at'  =>  new DateTime
         ],
+        [
+            'slug'        => 'admin', 
+            'descripcion' => 'Administrador',
+            'created_at'  =>  new DateTime, 
+            'updated_at'  =>  new DateTime
+        ],
         ]);
 
     }
